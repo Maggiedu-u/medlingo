@@ -1,22 +1,27 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MedLingo · 发热咽痛复杂问诊</title><link rel="stylesheet" href="css/style-01.css"><link rel="stylesheet" href="css/style-02.css"><link rel="stylesheet" href="css/style-03.css"></head><body><aside><a class="brand" href="#" onclick="home();return false"><span>✚</span> MedLingo<small>医疗口译情境训练</small></a><div class="side-label">你的学习空间</div><button class="nav active" onclick="home()">▦　场景地图</button><button class="nav" onclick="glossary()">▤　随身词汇册</button><div class="side-bottom"><div class="avatar">译</div><strong>见习医疗译员</strong><p>每一次准确传达，都很重要。</p><div id="side-progress"></div></div></aside><div class="shell"><header><span>LEARN BY INTERPRETING</span><div><span class="dot"></span> 情境练习 <button class="quiet" onclick="audioDiagnostics()">声音／麦克风检查</button><button class="quiet" onclick="voiceSettings()">音色设置</button><button class="quiet" onclick="showHelp()">使用说明</button></div></header><main id="app"></main><footer>英语就医情境 · 英国流程参考 · 虚构病例，仅用于语言训练 <button class="quiet" onclick="sources()">情境依据</button></footer></div><dialog id="modal"><div id="modal-content"></div><button class="primary" onclick="document.querySelector('dialog').close()">知道了</button></dialog><script src="js/scenarios.js"></script><script src="js/app.js"></script><script src="js/assessment.js"></script><script src="js/conversation.js"></script><script src="js/cinema.js"></script><script src="js/speech.js"></script><script src="js/audio-repair.js"></script><script src="js/fever-expanded.js"></script>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MedLingo · 发热咽痛复杂问诊</title><link rel="stylesheet" href="css/style-01.css"><link rel="stylesheet" href="css/style-02.css"><link rel="stylesheet" href="css/style-03.css"></head><body><aside><a class="brand" href="#" onclick="home();return false"><span>✚</span> MedLingo<small>医疗口译情境训练</small></a><div class="side-label">你的学习空间</div><button class="nav active" onclick="home()">▦　场景地图</button><button class="nav" onclick="glossary()">▤　随身词汇册</button><div class="side-bottom"><div class="avatar">译</div><strong>见习医疗译员</strong><p>每一次准确传达，都很重要。</p><div id="side-progress"></div></div></aside><div class="shell"><header><span>LEARN BY INTERPRETING</span><div><span class="dot"></span> 情境练习 <button class="quiet" onclick="audioDiagnostics()">声音／麦克风检查</button><button class="quiet" onclick="voiceSettings()">音色设置</button><button class="quiet" onclick="showHelp()">使用说明</button></div></header><main id="app"></main><footer><div id="medlingo-visit-widget" style="margin:14px 0;font-size:14px;color:#173b37;line-height:1.8" aria-live="polite"><strong>累计访问次数：<span id="busuanzi_page_pv">—</span> 次</strong><span id="medlingo-visit-status" style="margin-left:10px;font-size:12px">正在读取…</span><br><small>打开或刷新页面各计1次。由第三方不蒜子提供访问统计。</small></div>英语就医情境 · 英国流程参考 · 虚构病例，仅用于语言训练 <button class="quiet" onclick="sources()">情境依据</button></footer></div><dialog id="modal"><div id="modal-content"></div><button class="primary" onclick="document.querySelector('dialog').close()">知道了</button></dialog><script src="js/scenarios.js"></script><script src="js/app.js"></script><script src="js/assessment.js"></script><script src="js/conversation.js"></script><script src="js/cinema.js"></script><script src="js/speech.js"></script><script src="js/audio-repair.js"></script><script src="js/fever-expanded.js"></script>
 <link rel="stylesheet" href="css/style-04.css">
 <div id="task-dock" hidden aria-label="当前任务操作栏"><div id="dock-status" role="status"></div><div id="dock-buttons"><button class="secondary" id="dock-locate">定位当前任务 ↑</button><button class="primary" id="dock-next"></button></div></div>
 <script src="js/task-navigation.js"></script>
-<link rel="stylesheet" href="css/style-05.css"></body></html>
-
-# MedLingo 医疗口译训练游戏
-
-以用户上传的 index(1).html 为基准整理；保持原有脚本、CSS 加载顺序和游戏行为。无构建步骤，无 npm 依赖，可由 GitHub Pages 直接托管。
-
-**首次上传请阅读 [中文教程](docs/上传GitHub教程.md)。**
-
-入口：index.html。包含预约、登记、发热咽痛、分诊、腹泻脱水、外伤六个场景；发热为12轮扩展问诊及三道反应题。支持双向口译、浏览器 ASR/TTS、输入和选择回答。
-
-## 源码维护
-数据：js/scenarios.js；发热扩展和反应题：js/fever-expanded.js；判断规则：js/assessment.js；语音及双向流程：js/speech.js；操作栏：js/task-navigation.js。其余文件见中文教程。
-
-本次仅拆分文件、提取图片，没有重新设计或改变评分逻辑。原代码有逐层覆盖函数的历史结构，保留以减少回归；未来可再逐步重构。案例数据暂仍采用 JS。
-
-图片为既有生成场景图，静态图片不代表真人视频。病例为虚构教学内容，需医学和口译教学专家审校。关键词规则不等同于人工质量评价。语音识别及朗读能力由浏览器、设备和网络决定。
-
-修改后提交到 main，等待 Pages 发布，学生刷新固定网址看到新版。尚未替用户上传或发布 GitHub。
+<link rel="stylesheet" href="css/style-05.css">
+<script>
+// One statistics request per page load; scene navigation does not reload this script.
+(function(){
+ if(window.medlingoVisitCounterStarted)return;
+ window.medlingoVisitCounterStarted=true;
+ const count=document.getElementById('busuanzi_page_pv');
+ const status=document.getElementById('medlingo-visit-status');
+ if(location.hostname!=='maggiedu-u.github.io'){
+  status.textContent='本地预览不计数，请在正式游戏网址查看';return;
+ }
+ const numeric=()=>/^\d[\d,\s]*$/.test(count.textContent.trim());
+ function showResult(){if(numeric())status.textContent='';}
+ new MutationObserver(showResult).observe(count,{childList:true,subtree:true,characterData:true});
+ const script=document.createElement('script');
+ script.src='https://busuanzi.9420.ltd/js';
+ script.defer=true;
+ script.onerror=()=>{status.textContent='统计暂不可用，不影响游戏';};
+ setTimeout(()=>{if(!numeric())status.textContent='统计暂不可用，不影响游戏';},12000);
+ document.body.appendChild(script);
+})();
+</script>
+</body></html>
